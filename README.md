@@ -2,7 +2,7 @@
 
 **1. Project Overview:**
 
-The goal of this project was to build an automated, scalable, and reliable data pipeline to fetch stock market data from the Finnhub API, and Yahoo Finance and store it in an Amazon RDS database for further analysis and reporting. The system ensures that stock data is updated daily on weekdays, leveraging AWS services such as IAM, Redshift, Lambda, S3, Secret Manager, and Event Bridge.
+This project aimed to build an automated, scalable, and reliable data pipeline to fetch stock market data from the Finnhub API, and Yahoo Finance and store it in AWS Redshift for further analysis and reporting. The system ensures that stock data is updated daily on weekdays, leveraging AWS services such as IAM, Redshift, Lambda, S3, Secret Manager, and Event Bridge.
 
 #  
 
