@@ -19,28 +19,91 @@ The goal of this project was to build an automated, scalable, and reliable data 
 **Stock_data table:**  This table stores the data of company stock price extracted from Finnhub API.
 
 CREATE TABLE stock_data (
+
     symbol VARCHAR(10),
+    
     date DATE,
+    
     open_price FLOAT,
+    
     close_price FLOAT,
+    
     high_price FLOAT,
+    
     low_price FLOAT,
+    
     previous_close_price FLOAT,
+    
     timestamp BIGINT
+    
 );
+
+Sample Data:
+
+{
+
+        "symbol": "AAPL",
+        
+        "date": "2024-11-28",
+        
+        "open_price": 234.465,
+        
+        "close_price": 234.93,
+        
+        "high_price": 235.69,
+        
+        "low_price": 233.8101,
+        
+        "previous_close_price": 235.06,
+        
+        "timestamp": 1732741200
+        
+    }
 
 **Stock_details table:** This table contains the company details for the companies we are extracting from the Finnhub API. These company details are extracted from Yahoo Finance API.
 
 CREATE TABLE stock_details (
+
     symbol VARCHAR(10) PRIMARY KEY,
+    
     company_name VARCHAR(255),
+    
     sector VARCHAR(100),
+    
     industry VARCHAR(100),
+    
     country VARCHAR(100),
+    
     market_cap BIGINT,
+    
     pe_ratio FLOAT,
+    
     exchange VARCHAR(10)
+    
 );
+
+
+Sample Data:
+
+{
+
+        "symbol": "AAPL",
+        
+        "company_name": "Apple Inc.",
+        
+        "sector": "Technology",
+        
+        "industry": "Consumer Electronics",
+        
+        "country": "United States",
+        
+        "market_cap": 3550927912960,
+        
+        "pe_ratio": 38.57389,
+        
+        "exchange": "NMS"
+        
+    }
 
 #  
 
@@ -68,6 +131,8 @@ CREATE TABLE stock_details (
    
       AWS EventBridge was configured to trigger the Lambda function at 5:10 PM (EST) on weekdays.
 
+      CRON Expression : cron(0 17 ? * MON-FRI *)
+
 **2. Storing Data in S3**
 
   •	Storage Structure:
@@ -81,6 +146,8 @@ CREATE TABLE stock_details (
     
     A second Lambda function was designed to trigger at 5:15 PM (EST) after the stock data for the day was saved to S3.
     Merged all JSON files for the day into a single consolidated JSON file.
+
+    CRON Expression : cron(15 17 ? * MON-FRI *)
  
   • Event Trigger:
     
