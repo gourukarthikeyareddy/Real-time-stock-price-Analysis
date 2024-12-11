@@ -157,3 +157,8 @@ Sample Data:
     
     The merged JSON file data will be stored in the Redshift database.
 
+#  
+
+**5. Tableau Dashboard**
+
+![image](https://github.com/user-attachments/assets/5b104dc1-1b2f-476a-9367-c1e34f9d2b04)
